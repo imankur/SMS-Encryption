@@ -55,11 +55,7 @@ public class MainActivity extends Activity {
 		registerForContextMenu(smslist);
 		
 		
-		
-		
-		
-		
-		new thrd().execute();
+		new MyThread().execute();
 		smslist.setOnItemClickListener(new OnItemClickListener() {
 			@Override
 			public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
@@ -115,7 +111,7 @@ public class MainActivity extends Activity {
 		public void onChange(boolean selfChange) {
 			// TODO Auto-generated method stub
 			super.onChange(selfChange);
-			new thrd().execute();
+			new MyThread().execute();
 		}
 
 		@TargetApi(Build.VERSION_CODES.JELLY_BEAN)
@@ -123,7 +119,7 @@ public class MainActivity extends Activity {
 		public void onChange(boolean selfChange, Uri uri) {
 			// TODO Auto-generated method stub
 			super.onChange(selfChange, uri);
-			new thrd().execute();
+			new MyThread().execute();
 		}
 	}
 
@@ -141,7 +137,7 @@ public class MainActivity extends Activity {
 		inflater.inflate(R.menu.welcome, menu);
 	}
 
-	class thrd extends AsyncTask<Void, Void, Cursor> {
+	class MyThread extends AsyncTask<Void, Void, Cursor> {
 		String k;
 
 		@Override
